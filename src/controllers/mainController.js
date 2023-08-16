@@ -7,4 +7,16 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/user/:username', (req, res) => {
+  res.render('index', {
+    title: 'User',
+  });
+});
+
+router.get('/login', (req, res) => {
+  res.render('index', {
+    title: 'Login',
+  });
+});
+
 module.exports = router;
