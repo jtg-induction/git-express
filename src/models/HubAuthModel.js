@@ -14,8 +14,18 @@ class AuthModel {
     );
     const data = JSON.parse(response.data);
 
-    if (response.status === 401 || data.login !== username) {
-      throw new Error('Wrong username or password.');
+    if (response.status !== 200) {
+      throw {
+        status: response.status,
+        message: data.message,
+      };
+    }
+
+    if (data.login !== username) {
+      throw {
+        status: 401,
+        message: 'Wrong username or password',
+      };
     }
 
     return prepareUserDetails(data);

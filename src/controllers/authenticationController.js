@@ -13,9 +13,7 @@ router.post('/login', async (req, res) => {
     const userData = await authModel.authenticateUser(username, password);
     res.json(userData);
   } catch (error) {
-    res
-      .status(401)
-      .json({ message: error.message || 'Authentication Failed.' });
+    res.status(error.status).json({ error: error.message });
   }
 });
 
