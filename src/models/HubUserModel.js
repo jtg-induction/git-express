@@ -29,16 +29,14 @@ class HubUserModel {
       },
     });
 
-    const data = JSON.parse(response.data);
-
     if (response.status !== 200) {
       throw {
         status: response.status,
-        message: data.message,
+        message: response.data.message,
       };
     }
 
-    return prepareUserDetails(data);
+    return prepareUserDetails(response.data);
   }
 }
 

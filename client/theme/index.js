@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from '@mui/material';
 import { colors } from './variables';
 
 const theme = createTheme({
@@ -9,6 +9,10 @@ const theme = createTheme({
     secondary: {
       main: colors.secondary,
     },
+    text: {
+      primary: colors.primaryText,
+    },
+    divider: colors.border,
   },
   typography: {
     fontFamily: 'Montserrat',

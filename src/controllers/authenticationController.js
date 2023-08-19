@@ -11,9 +11,10 @@ router.post('/login', async (req, res) => {
 
   try {
     const userData = await authModel.authenticateUser(username, password);
+
     res.json(userData);
   } catch (error) {
-    res.status(error.status).json({ error: error.message });
+    res.status(error.status || 500).json({ error: error.message });
   }
 });
 

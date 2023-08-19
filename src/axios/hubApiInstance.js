@@ -6,6 +6,7 @@ const axiosInstance = new axios.Axios({
   timeout: 10000,
   headers: {
     accept: 'application/vnd.github.v3+json',
+    'content-type': 'application/json',
   },
 });
 
@@ -23,7 +24,14 @@ axiosInstance.interceptors.request.use((requestConfig) => {
       message: 'Authorization header not present',
     });
   }
+
   return requestConfig;
+});
+
+axiosInstance.interceptors.response.use((responseConfig) => {
+  responseConfig.data = JSON.parse(responseConfig.data);
+
+  return responseConfig;
 });
 
 module.exports = axiosInstance;

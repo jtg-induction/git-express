@@ -1,0 +1,41 @@
+<svg width="50" height="50" viewBox="0 0 65 65" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2014_38658)">
+  <circle cx="30" cy="5" r="1" style="fill:#E24B4C;">
+    <animate attributeType="XML" attributeName="r" values="1;5.5;1"
+             dur="1s" begin="0s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="45" cy="10" r="1" style="fill:#E56B42;">
+    <animate attributeType="XML" attributeName="r" values="1;7;1"
+            dur="1s" begin="1.4s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="50" cy="25" r="1" style="fill:#E99635;">
+    <animate attributeType="XML" attributeName="r" values="1;5.5;1"
+            dur="1s" begin="1.2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="45" cy="40" r="1" style="fill:#31ACDB;">
+    <animate attributeType="XML" attributeName="r" values="1;4.5;1"
+            dur="1s" begin="0.25" repeatCount="indefinite" />
+  </circle>
+    <circle cx="30" cy="45" r="1" style="fill:#30D4BA;">
+    <animate attributeType="XML" attributeName="r" values="1;4.5;1"
+            dur="1.25s" begin="0.75s" repeatCount="indefinite" />
+  </circle>
+      <circle cx="15" cy="40" r="1" style="fill:#3C81DB;">
+    <animate attributeType="XML" attributeName="r" values="1;4.5;1"
+            dur="1.25s" begin="1.6s" repeatCount="indefinite" />
+  </circle>
+      <circle cx="10" cy="25" r="1" style="fill:#485DD8;">
+    <animate attributeType="XML" attributeName="r" values="1;5;1"
+            dur="1.25s" begin="0.5s" repeatCount="indefinite" />
+  </circle>
+      <circle cx="15" cy="10" r="1" style="fill:#6F42E0;">
+    <animate attributeType="XML" attributeName="r" values="1;5.5;1"
+            dur="1.25s" begin="1s" repeatCount="indefinite" />
+  </circle>
+ </g>
+<defs>
+<clipPath id="clip0_2014_38658">
+<rect width="120" height="120" fill="white"/>
+</clipPath>
+</defs>
+</svg>

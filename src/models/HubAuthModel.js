@@ -12,23 +12,22 @@ class AuthModel {
         },
       },
     );
-    const data = JSON.parse(response.data);
 
     if (response.status !== 200) {
       throw {
         status: response.status,
-        message: data.message,
+        message: response.data.message,
       };
     }
 
-    if (data.login !== username) {
+    if (response.data.login !== username) {
       throw {
         status: 401,
         message: 'Wrong username or password',
       };
     }
 
-    return prepareUserDetails(data);
+    return prepareUserDetails(response.data);
   }
 }
 

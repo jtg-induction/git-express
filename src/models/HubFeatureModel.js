@@ -20,16 +20,15 @@ class HubFeatureModel {
         },
       },
     );
-    const data = JSON.parse(response.data);
 
     if (response.status !== 200) {
       throw {
         status: response.status,
-        message: data.message,
+        message: response.data.message,
       };
     }
 
-    return data.map((item) => prepareUserDetails(item));
+    return response.data.map((item) => prepareUserDetails(item));
   }
 
   async getSearchUsers(queries) {
@@ -42,16 +41,15 @@ class HubFeatureModel {
         params: queries,
       },
     );
-    const data = JSON.parse(response.data);
 
     if (response.status !== 200) {
       throw {
         status: response.status,
-        message: data.message,
+        message: response.data.message,
       };
     }
 
-    return data.items.map((item) => prepareUserDetails(item));
+    return response.data.items.map((item) => prepareUserDetails(item));
   }
 
   async getPaginatedSearchUsers() {

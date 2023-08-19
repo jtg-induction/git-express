@@ -11,7 +11,7 @@ router.get('/suggestions', async (req, res) => {
     const userData = await featureModel.getUserSuggestions(count);
     res.json(userData);
   } catch (error) {
-    res.status(error.status).json({ error: error.message });
+    res.status(error.status || 500).json({ error: error.message });
   }
 });
 
@@ -23,7 +23,7 @@ router.get('/search', async (req, res) => {
     const userData = await featureModel.getSearchUsers(req.query);
     res.json(userData);
   } catch (error) {
-    res.status(error.status).json({ error: error.message });
+    res.status(error.status || 500).json({ error: error.message });
   }
 });
 

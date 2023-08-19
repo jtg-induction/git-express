@@ -10,7 +10,7 @@ const prepareUserDetails = (data) => ({
   username: data.login,
   id: data.id,
   avatarUrl: data.avatar_url,
-  reposUrl: data.repos_url,
+  collaborators: data.collaborators,
   name: data.name,
   company: data.company,
   location: data.location,
@@ -19,6 +19,7 @@ const prepareUserDetails = (data) => ({
   followersCount: data.followers,
   followingCount: data.following,
   totalReposCount: (data.public_repos || 0) + (data.owned_private_repos || 0),
+  twitterUsername: data.twitter_username,
 });
 
 module.exports = {

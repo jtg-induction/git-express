@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./client",
+      "paths": {
+        "@images/*": ["assets/images/*"],
+        "@components/*": ["components/*"],
+        "@constants/*": ["constants/*"],
+        "@reduxActions": ["redux/actions.js"],
+        "@layouts/*": ["layouts/*"],
+        "@utils/*": ["utils/index.js*"],
+        "@services/*": ["services/*"]
+      }
+    }
+  }

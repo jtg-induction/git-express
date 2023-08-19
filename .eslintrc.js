@@ -23,8 +23,9 @@ module.exports = {
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-fragments': ['error', 'element'],
-    'react/state-in-constructor': ['error', 'never'],
+    'react/state-in-constructor': ['error', 'always'],
     'react/static-property-placement': 'error',
+    'react/react-in-jsx-scope': 'off',
   },
   settings: {
     react: {

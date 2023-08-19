@@ -21,7 +21,7 @@ module.exports = {
       },
 
       {
-        test: /\.js$/,
+        test: /\.js|jsx$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -48,7 +48,13 @@ module.exports = {
     alias: {
       '@images': path.resolve(__dirname, 'client/assets/images'),
       '@reduxActions': path.resolve(__dirname, 'client/redux/actions.js'),
+      '@layouts': path.resolve(__dirname, 'client/layouts'),
+      '@components': path.resolve(__dirname, 'client/components'),
+      '@constants': path.resolve(__dirname, 'client/constants'),
+      '@utils': path.resolve(__dirname, 'client/utils/index.js'),
+      '@services': path.resolve(__dirname, 'client/services'),
     },
+    modules: [path.resolve(__dirname, 'client'), 'node_modules'],
   },
   plugins: [
     new DotenvWebpackPlugin({

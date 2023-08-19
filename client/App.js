@@ -1,11 +1,17 @@
-import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+
+import Routes from '@components/Routes';
+import Snackbar from '@components/Snackbar';
+import theme from 'theme';
 
 const App = () => {
   return (
-    <Box>
-      <Typography variant="h3">Hello From React!</Typography>
-    </Box>
+    <ThemeProvider theme={theme}>
+      <CssBaseline>
+        <Routes />
+        <Snackbar />
+      </CssBaseline>
+    </ThemeProvider>
   );
 };
 
