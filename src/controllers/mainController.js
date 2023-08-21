@@ -1,19 +1,21 @@
 const express = require('express');
 const router = express.Router();
+/** Browser routes on client */
+const routes = require('../../client/constants/routes');
 
-router.get('/', (req, res) => {
+router.get(routes.HOME, (req, res) => {
   res.render('index', {
     title: 'Home',
   });
 });
 
-router.get('/user/:username', (req, res) => {
+router.get(routes.USER_DETAIL, (req, res) => {
   res.render('index', {
     title: 'User',
   });
 });
 
-router.get('/login', (req, res) => {
+router.get(routes.LOGIN, (req, res) => {
   res.render('index', {
     title: 'Login',
   });

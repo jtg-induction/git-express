@@ -1,12 +1,12 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { isUserAuthenticated } from '@utils';
-import { useEffect } from 'react';
-import { signInToFetchUserData } from 'redux/thunkActionCreators';
+import { signInToFetchUserData } from '@redux/thunkActionCreators';
 import routes from '@constants/routes';
 import { REDUX_ACTIONS } from '@reduxActions';
-import constants from '@constants/index';
+import constants from '@constants/common';
 
 const UserAuthentication = ({ children }) => {
   const dispatch = useDispatch();

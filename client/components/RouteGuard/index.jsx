@@ -1,6 +1,7 @@
 import { Navigate } from 'react-router-dom';
+
+import { isUserAuthenticated } from '@utils';
 import routes from '@constants/routes';
-import { isUserAuthenticated } from 'utils';
 
 const RouteGuard = ({ children, path, isPrivate }) => {
   const isAuthenticated = isUserAuthenticated();

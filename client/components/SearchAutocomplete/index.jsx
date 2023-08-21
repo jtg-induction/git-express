@@ -6,29 +6,23 @@ import {
   MenuItem,
   CircularProgress,
 } from '@mui/material';
-import constants from '@constants/index';
+
+import constants from '@constants/common';
 import SearchOptionTemplate from '@components/SearchOptionTemplate';
 
 const SearchAutocomplete = ({
   getResults,
   placeholder,
   onChange,
+  isLoading,
   ...restProps
 }) => {
-  //   const [value, setValue] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState([]);
 
   const debouncedSearch = useCallback(
     debounce(async (value) => {
-      setIsLoading(true);
-      try {
-        const results = await getResults(value);
-        setResults(results);
-      } catch (_err) {
-        /** _err */
-      }
-      setIsLoading(false);
+      const results = await getResults(value);
+      setResults(results);
     }, constants.INPUT_DEBOUNCE_DELAY),
     [],
   );

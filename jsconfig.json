@@ -7,8 +7,9 @@
         "@constants/*": ["constants/*"],
         "@reduxActions": ["redux/actions.js"],
         "@layouts/*": ["layouts/*"],
-        "@utils/*": ["utils/index.js*"],
-        "@services/*": ["services/*"]
+        "@utils": ["utils/index.js*"],
+        "@services/*": ["services/*"],
+        "@redux/*": ["redux/*"]
       }
     }
   }

@@ -7,10 +7,10 @@ import { TwoColumnLayout } from '@layouts/TwoColumnLayout';
 import GirlFlyingPaper from '@images/girl_flying_paper.svg';
 import Header from '@components/Header';
 import { LoginForm } from '@components/LoginForm/LoginForm';
-import { signInToFetchUserData } from 'redux/thunkActionCreators';
+import { signInToFetchUserData } from '@redux/thunkActionCreators';
 import routes from '@constants/routes';
-import { storeUserInStorage } from 'utils';
 import { REDUX_ACTIONS } from '@reduxActions';
+import { storeUserInStorage } from '@utils';
 
 const Login = () => {
   const dispatch = useDispatch();

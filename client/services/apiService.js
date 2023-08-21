@@ -1,7 +1,8 @@
 import axios from 'axios';
+
 import apiUrls from '@constants/apiUrls';
-import constants from '@constants/index';
-import { getStaticUrl } from 'utils';
+import constants from '@constants/common';
+import { getStaticUrl } from '@utils';
 
 const axiosInstance = new axios.Axios({
   baseURL: process.env.API_BASE_URL,

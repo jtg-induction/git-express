@@ -8,9 +8,12 @@ import routes from '@constants/routes';
 import UserMenu from '@components/UserMenu';
 import { REDUX_ACTIONS } from '@reduxActions';
 import SearchAutocomplete from '@components/SearchAutocomplete';
-import apiService from '@services/apiService';
-import { fetchUserDetails } from 'redux/thunkActionCreators';
-import { getStaticUrl } from 'utils';
+import constants from '@constants/common';
+import {
+  fetchUserDetails,
+  fetchUserSearchResults,
+} from '@redux/thunkActionCreators';
+import { getStaticUrl } from '@utils';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -18,6 +21,9 @@ const Header = () => {
   const pathMatch = useMatch(routes.USER_DETAIL);
 
   const loggedInUserData = useSelector((state) => state.loggedInUserData);
+  const isUserSearchResultsLoading = useSelector(
+    (state) => state.loadings[REDUX_ACTIONS.GET_USER_SEARCH_RESULTS]?.loading,
+  );
   const isLoggedIn = Boolean(Object.keys(loggedInUserData).length);
   const dispatch = useDispatch();
 
@@ -37,22 +43,32 @@ const Header = () => {
     }));
 
   const getSearchUsers = async (searchText) => {
+    /** Fetch search results only when search text is present */
     if (searchText) {
-      const response = await apiService.executeUserSearchQuery({
-        q: searchText,
-        per_page: 10,
-      });
+      const response = await dispatch(
+        fetchUserSearchResults({
+          searchText,
+          count: constants.USER_SEARCH_RESULTS_COUNT,
+        }),
+      );
 
-      if (response.status !== 200) {
-        dispatch({
-          type: REDUX_ACTIONS.OPEN_SNACKBAR,
-          payload: { message: response.data.error },
-        });
-      } else {
-        return getSearchAutocompleteData(response.data);
-      }
+      return response.status === 200
+        ? getSearchAutocompleteData(response.data)
+        : [];
     }
+
     return [];
+  };
+
+  const handleUserSelectFromSearch = async (_e, value) => {
+    if (pathMatch && pathMatch.pathname === pathname) {
+      dispatch(fetchUserDetails(value.extraData.username));
+    }
+    navigate(
+      getStaticUrl(routes.USER_DETAIL, {
+        username: value.extraData.username,
+      }),
+    );
   };
 
   return (
@@ -68,16 +84,8 @@ const Header = () => {
             <SearchAutocomplete
               placeholder="Search users"
               getResults={getSearchUsers}
-              onChange={async (_e, value) => {
-                if (pathMatch && pathMatch.pathname === pathname) {
-                  dispatch(fetchUserDetails(value.extraData.username));
-                }
-                navigate(
-                  getStaticUrl(routes.USER_DETAIL, {
-                    username: value.extraData.username,
-                  }),
-                );
-              }}
+              isLoading={isUserSearchResultsLoading}
+              onChange={handleUserSelectFromSearch}
             />
             <UserMenu
               avatarSrc={loggedInUserData.avatarUrl}

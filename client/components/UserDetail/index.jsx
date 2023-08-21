@@ -9,7 +9,7 @@ import Header from '@components/Header';
 import { TwoColumnLayout } from '@layouts/TwoColumnLayout';
 import DetailCard from '@components/DetailCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUserDetails } from 'redux/thunkActionCreators';
+import { fetchUserDetails } from '@redux/thunkActionCreators';
 import { REDUX_ACTIONS } from '@reduxActions';
 import Loader from '@components/Loader';
 import { DetailCardSkeleton } from '@components/Skeletons';

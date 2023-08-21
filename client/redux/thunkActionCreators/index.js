@@ -95,3 +95,34 @@ export const fetchSuggestionsForUser = (count) => async (dispatch) => {
 
   return response;
 };
+
+export const fetchUserSearchResults = (params) => async (dispatch) => {
+  dispatch({
+    type: REDUX_ACTIONS.LOADING_STATES,
+    forAction: REDUX_ACTIONS.GET_USER_SEARCH_RESULTS,
+    payload: true,
+  });
+  const response = await apiService.executeUserSearchQuery(params);
+
+  if (response.status === 200) {
+    dispatch({
+      type: REDUX_ACTIONS.GET_USER_SEARCH_RESULTS,
+      payload: response.data,
+    });
+  } else {
+    dispatch({
+      type: REDUX_ACTIONS.OPEN_SNACKBAR,
+      payload: {
+        message: response.data.error,
+      },
+    });
+  }
+
+  dispatch({
+    type: REDUX_ACTIONS.LOADING_STATES,
+    forAction: REDUX_ACTIONS.GET_USER_SEARCH_RESULTS,
+    payload: false,
+  });
+
+  return response;
+};

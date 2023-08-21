@@ -48,6 +48,7 @@ module.exports = {
     alias: {
       '@images': path.resolve(__dirname, 'client/assets/images'),
       '@reduxActions': path.resolve(__dirname, 'client/redux/actions.js'),
+      '@redux': path.resolve(__dirname, 'client/redux'),
       '@layouts': path.resolve(__dirname, 'client/layouts'),
       '@components': path.resolve(__dirname, 'client/components'),
       '@constants': path.resolve(__dirname, 'client/constants'),

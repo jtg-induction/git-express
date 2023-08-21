@@ -31,14 +31,17 @@ class HubFeatureModel {
     return response.data.map((item) => prepareUserDetails(item));
   }
 
-  async getSearchUsers(queries) {
+  async getSearchUsers(params) {
     const response = await axiosInstance.get(
       serverConfig.externalApi.endpoints.searchUsers,
       {
         headers: {
           Authorization: this.authToken,
         },
-        params: queries,
+        params: {
+          q: params.searchText,
+          per_page: params.count,
+        },
       },
     );
 

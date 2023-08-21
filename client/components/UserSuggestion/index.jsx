@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSuggestionsForUser } from 'redux/thunkActionCreators';
+import { fetchSuggestionsForUser } from '@redux/thunkActionCreators';
 import { Avatar, Box, Chip, Skeleton, Typography } from '@mui/material';
 import { REDUX_ACTIONS } from '@reduxActions';
 import { useNavigate } from 'react-router-dom';
 import routes from '@constants/routes';
 import { getStaticUrl } from '@utils';
-import constants from '@constants/index';
+import constants from '@constants/common';
 
 const UserSuggestion = () => {
   const dispatch = useDispatch();
